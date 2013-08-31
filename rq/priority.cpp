@@ -38,7 +38,7 @@ int solveQ(int config[],int start,int end,int val,int a,int b,int c,int n)
 			c = save_c;
 			config[i] = a;
 			n = n - a;
-			while(b >= 0)
+			while(b >= 0 && n >= 0)
 			{
 				if(n == 0)
 				{	
@@ -51,6 +51,7 @@ int solveQ(int config[],int start,int end,int val,int a,int b,int c,int n)
 				else if(n<=b)
 				{
 					
+					b = n;
 					config[i+1] = n;
 					save_n2 = n; //2nd level
 					n = n - config[i+1];
@@ -65,7 +66,7 @@ int solveQ(int config[],int start,int end,int val,int a,int b,int c,int n)
 				{
 					config[i+1] = b;
 				}
-				while( c >= 0)
+				while( c >= 0 && n >= 0)
 				{
 					if(n == 0)
 					{
@@ -78,7 +79,6 @@ int solveQ(int config[],int start,int end,int val,int a,int b,int c,int n)
 					else if(n<=c)
 					{
 						config[i+2] = n;
-						save_n3 = n; //3rd level
 						n = n - config[i+2];
 						if(n == 0)
 						{
@@ -87,6 +87,11 @@ int solveQ(int config[],int start,int end,int val,int a,int b,int c,int n)
 							n = save_n2;
 							break;
 						}
+					}
+					else
+					{
+						break;
+																
 					}
 				
 				}
@@ -108,7 +113,7 @@ void count_configurations(int a,int b, int c,int n)
 int main()
 {
 	int a,b,c,n;
-	a = 2, b = 2 , c = 2 , n = 2;
+	a = 4, b = 4 , c =6  , n = 3;
 	
 	count_configurations(a,b,c,n);
 	
