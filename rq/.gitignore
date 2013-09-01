@@ -1,4 +1,8 @@
 #ignore executables
 *.out
-#ignore .swp files
+#ignore backup files
+*~
 *.swp
+*.swo
+#ignore .ycm* files
+.ycm*
