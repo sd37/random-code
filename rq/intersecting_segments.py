@@ -1,11 +1,3 @@
-'''
-def tuple_to_str(t):
-    t1 = t[0]
-    t2 = t[1]
-
-    s = str(t1[0]) + "," + str(t2[0]) + "," + str(t2[0]) + "," + str(t2[1])
-    return s
-'''    
 def construct_2darray(seg,p):
     Matrix = [[0 for x in xrange(2)] for x in xrange(2)]
     Matrix[0][0] = seg.getp1().getX() - p.getX()
