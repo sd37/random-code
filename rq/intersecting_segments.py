@@ -93,7 +93,6 @@ def intersecting_segments(segments):
     compute_determinant(arr2d)
     '''
     for i in range(len(seg)):
-	c = 0
 	for j in range(i+1,len(seg)):
 	    if(seg[i].doIntersect(seg[j])):
 		d[seg[i]] += 1
