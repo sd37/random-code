@@ -4,5 +4,6 @@
 *~
 *.swp
 *.swo
-#ignore .ycm* files
-.ycm*
+#ignore .pyc files
+*.pyc
+
