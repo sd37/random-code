@@ -70,7 +70,7 @@ int quick_select(int arr[],int first,int last,int k)
 
 int main()
 {
-    int arr[] = {45,32,12,31,8,90,10};
+    int arr[] = {45,32,12,31,8,90,10,100,87,97,67};
     //int pivot = partion(arr,0,SIZE(arr) - 1);
 
     int k = 5;
