@@ -24,10 +24,9 @@ int partion(int arr[],int first , int last)
     int pivot = arr[first];
 
     int i;
-    int j = 1;
+    int j = first + 1;
 
-    int len = last - first + 1;
-    for(i = 1; i < len; i++)
+    for(i = first + 1; i <= last; i++)
     {
         if(arr[i] < pivot)
         {
@@ -43,13 +42,13 @@ int partion(int arr[],int first , int last)
 
 int quick_select(int arr[],int first,int last,int k)
 {
-    if (k > last - first + 1)
-    {
-        printf("error\n");
-        return -1;
-    }
     while(1)
     {
+        if(first == last)
+        {
+            return arr[first];
+        }
+
         int pivot_curr = partion(arr,first,last);
 
         int pivot_dist = pivot_curr - first;
@@ -59,12 +58,12 @@ int quick_select(int arr[],int first,int last,int k)
     
         else if (k < pivot_dist)
         {
-            last = pivot_curr;        
+            last = pivot_curr - 1;        
         }
         else
         {
-            k = k - pivot_curr;
-            first = pivot_curr + 1;
+            k = k - pivot_dist - 1; 
+            first = pivot_curr + 1;  
         }
     }
 }
