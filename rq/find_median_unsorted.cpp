@@ -1,3 +1,4 @@
+//https://www.hackerrank.com/challenges/find-median
 #include<iostream>
 #include<stdio.h>
 #include<vector>
@@ -72,17 +73,6 @@ int main()
 {
     vector<int> arr;
     int len;
-    
-    /*int arr[] = {45,32,12,31,8,90,10,100,87,97,67,11};
-    //int arr[] = {0,1,2,4,6,5,3};
-    //int pivot = partion(arr,0,SIZE(arr) - 1);
-
-    for (int k = 0; k < SIZE(arr); k++)
-    {    
-        int ans = quick_select(arr,0,SIZE(arr) - 1,k);
-        printf("(%d) %d\n",k , ans);
-    }
-    */
     cin >> len;
     int save_len = len;
     while(save_len--)
