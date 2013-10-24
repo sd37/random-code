@@ -1,6 +1,4 @@
 #include<iostream>
-#include<map>
-#define present(c,x) ((c).find(x) != (c).end())
 using namespace std;
 
 //A queue will be implemented as a Doubly Linked List
