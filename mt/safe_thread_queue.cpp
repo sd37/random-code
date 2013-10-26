@@ -5,7 +5,24 @@
 
 using namespace std;
 
-//A queue will be implemented as a Doubly Linked List
+//A queue will be implemented as a Doubly Linked List.
+//Enqueue : O(1)
+//Dequeue : O(1)
+
+// Description:
+// Only one thread at time can modify the queue
+// If enqueue is done when the queue is full then it waits  for any one thread to dequeue()
+// If dequeue is done when the queue is empty then it waits for any one thread to enqueue().
+// In the main function
+// for testing we have 
+// t1 = enqueue Thread
+// t2 = dequeue Thread
+// t3 = dequeu Thread
+
+//Running Program:
+//type : g++ -g -o safe safe_thread_queue.cpp -pthread -std=c++11
+//in the terminal
+
 struct dlNode 
 {
     int val;
@@ -212,7 +229,6 @@ int main()
     thread t1(Tasks::enqueue_tasks,std::ref(q));
     thread t2(Tasks::dequeue_tasks,std::ref(q));
     thread t3(Tasks::dequeue_tasks,std::ref(q));
-    
     //wait for all the threads to finish
     t1.join();
     t2.join();
