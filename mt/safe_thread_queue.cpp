@@ -17,11 +17,13 @@ using namespace std;
 // for testing we have 
 // t1 = enqueue Thread
 // t2 = dequeue Thread
-// t3 = dequeu Thread
+// t3 = dequeue Thread
 
 //Running Program:
-//type : g++ -g -o safe safe_thread_queue.cpp -pthread -std=c++11
-//in the terminal
+//type : g++ -o safe safe_thread_queue.cpp -pthread -std=c++11
+//in the terminal to compile
+//and then type ./safe in the terminal
+//to run the program 
 
 struct dlNode 
 {
