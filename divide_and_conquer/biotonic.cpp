@@ -5,12 +5,25 @@
 using namespace std;
 
 int find_pivot(vector<int>& v,int low,int high)
-{
+{   
     while(low <= high)
     {
+        //base cases
+
+        if(low == high)
+            return low;
+
+        if(low == high + 1) 
+        {    
+            if(v[low] > v[high])
+                return low;
+            else
+                return high;
+        }
+
         int mid = (high - low) / 2 + low;
-        
-        if( (mid == 0 || mid == v.size() -1) || (v[mid - 1] < v[mid] && v[mid] > v[mid + 1]))
+       
+        if(v[mid - 1] < v[mid] && v[mid] > v[mid + 1])
             return mid;
         else if (v[mid - 1] < v[mid])
         {
