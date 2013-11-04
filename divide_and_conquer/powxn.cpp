@@ -56,7 +56,7 @@ double gen_pow(double x, int n)
             return ERROR;
         }
 
-        return pow(1/x , n);
+        return pow(1/x , -n);
     }
 
     else
