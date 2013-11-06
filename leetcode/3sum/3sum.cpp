@@ -69,7 +69,8 @@ print(ans);
 
 int main()
 {
-    vector<int>v({1,4,45,6,10,8,12,2,2,1,3});
+    //vector<int>v({1,4,45,6,10,8,12,2,2,1,3});
+    vector<int>v({1,4,45,6,10,8});
     ThreesumNaive(v,15);
     cout << endl;
     Threesum(v,15);
