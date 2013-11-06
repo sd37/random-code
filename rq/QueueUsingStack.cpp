@@ -35,7 +35,7 @@ string QueueUsingStack::dequeue()
     {
         cout << "Error: isEmpty() = true" << endl;
         return ""; //you cannot simply return NULL , this gives you a segmentation fault
-     }
+    }
     
     if(s2.empty())
     {

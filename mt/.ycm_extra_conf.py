@@ -37,7 +37,7 @@ import ycm_core
 flags = [
 '-Wall',
 '-Wextra',
-'-std=c++11'
+'-std=c++11',
 ]
 
 # Set this to the absolute path to the folder (NOT the file!) containing the
