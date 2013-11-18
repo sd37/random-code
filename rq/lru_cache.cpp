@@ -19,7 +19,7 @@ class DLL
 public:
     map<int,struct dlNode*> pg_map; 
     DLL(int size);   
-    void enq(int val);
+    void push(int val);
     void mvfront(struct dlNode* pg);
     void print()
     {
@@ -59,7 +59,7 @@ void DLL::mvfront(struct dlNode* pg)
     front = pg;
 }
 
-void DLL::enq(int val)
+void DLL::push(int val)
 {
    struct dlNode* pgNode = new struct dlNode;
    pgNode->val = val;
@@ -126,7 +126,7 @@ void LruCache::referencePage(int pageNumber)
 {
     if(!present(lruCache->pg_map,pageNumber))
     {
-        lruCache->enq(pageNumber);
+        lruCache->push(pageNumber);
     }
     else
     {
