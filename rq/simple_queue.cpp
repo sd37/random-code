@@ -48,11 +48,11 @@ void Queue::enqueue(int val)
         }
         else
         {
-            //update front
+            //update rear
 
-            new_node->next = front;
-            new_node->next->prev = new_node;
-            front = new_node;
+            new_node->prev = rear;
+            rear->next = new_node;
+            rear = rear->next;
         }
         currentSize++;
     }
