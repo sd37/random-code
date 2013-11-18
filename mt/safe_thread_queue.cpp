@@ -76,11 +76,11 @@ void ThreadSafeQueue::enqueue(int val)
         }
         else
         {
-            //update front
-
-            new_node->next = front;
-            new_node->next->prev = new_node;
-            front = new_node;
+            //update rear
+            
+            new_node->prev = rear;
+            rear->next = new_node;
+            rear = rear->next;
         }
     }
     else
@@ -97,11 +97,11 @@ void ThreadSafeQueue::enqueue(int val)
         }
         else
         {
-            //update front
+            //update rear
             
-            new_node->next = front;
-            new_node->next->prev = new_node;
-            front = new_node;
+            new_node->prev = rear;
+            rear->next = new_node;
+            rear = rear->next;
         }
     }
     
@@ -109,12 +109,13 @@ void ThreadSafeQueue::enqueue(int val)
 
     //print current queue after operation
     cout <<"Thread ID:" << this_thread::get_id() <<" > Current Queue after enqueue("<< val <<")\n";
-    
-    //notify one of the many threads waiting to dequeue.
-    dq_cond.notify_one();
     print();
     lk.unlock();
+    
+    //notify one of the many sleeping dequeue threads to continue
+    dq_cond.notify_one();
 }
+
 int ThreadSafeQueue::dequeue()
 {
     unique_lock<mutex> lk(mut); //lock the mutex immidiately
@@ -149,10 +150,12 @@ int ThreadSafeQueue::dequeue()
     
     currentSize--;
     cout << "Thread ID :" << this_thread::get_id() << " > Current Queue after dequeue()\n";
-    //notify one of the many threads waiting to enqueue
-    enq_cond.notify_one();
     print();
     lk.unlock(); //unlock the mutex immidiatley
+
+    //notify one of the many sleeping enqueue threads to continue
+    enq_cond.notify_one();
+    
     return data;
 }
 
