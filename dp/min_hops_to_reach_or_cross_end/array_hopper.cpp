@@ -18,7 +18,7 @@ string minJumpsToCross(vector<int>& v)
     // we have jumps array. jumps[i] = min jumps to reach the end from ith element.
     // we have a map next_hop which keeps track of the next hop for v[i]. This data-structure is finally used to get the path to move out of the array. 
     // to run the program.
-    // first compile using the following command = g++ -std=c++11 -o mn array_hopper.cpp
+    // first compile using the following command = g++ -std=c++11 -o ah array_hopper.cpp
     // then run using the following command = ./ah input.txt
     
     int n = v.size();
