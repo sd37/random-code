@@ -1,50 +1,49 @@
 #include<iostream>
 #include<cstdio>
 #include<limits.h>
+#include<cstdlib>
 
 using namespace std;
 
-//Here the basic assumption is that x and y are within the limits. Note there is no way to detect
-//whether an integer variable which is passed exceeds the limits.
-
-bool addOvf1(int &result,int x,int y)
+bool addOvf(int &result,int x,int y)
 {
-    int old_result = result;
-
+    if(x > 0 && y > INT_MAX - x)
+        return true;
+    if(x < 0 && y < INT_MIN - x)
+        return true;
     result = x + y;
-    
-    if(x > 0 && y > 0 && result < 0)
-    {    
-        result = old_result;
-        return true;
-    }
-    
-    if(x < 0 && y < 0 && result > 0)
-    {    
-        result = old_result;
-        return true;
-    }
-
     return false;
 }
 
-bool addOvf2(int &result,int x,int y)
+bool mulOvf(int &result,int x,int y)
 {
-    if(x > INT_MAX - y)
-        return true;
-    else
+    if(x == 0 || y == 0)
     {
-        result = x + y;
+        result = 0;
         return false;
     }
+
+    if(x > 0 && y > 0 && y > INT_MAX / x)
+        return true;
+    else if(x < 0 && y < 0 && abs(y) > INT_MAX / abs(x))
+        return true;
+    else if( y < INT_MIN / x)
+        return true;
+
+    result = x * y;
+    return false;
 }
+
 int main()
 {
-    int result = -99;
-    int x = 2147483640;
-    int y = 10;
+    int x,y,result;
 
-    cout << boolalpha << addOvf1(result,x,y) << endl;
+    /*
+    int result = -99;
+    x = 2147483640;
+    y = -10;
+
+    cout << boolalpha << addOvf(result,x,y) << endl;
     cout << result << endl;
     
     result = 0;
@@ -52,7 +51,14 @@ int main()
     x  = 10;
     y  = 10;
     
-    cout << boolalpha << addOvf2(result,x,y) << endl;
+    cout << boolalpha << addOvf(result,x,y) << endl;
+    cout << result << endl;
+    */
+    x = 10;
+    y = -2147483641;
+    result = -99;
+
+    cout << boolalpha << mulOvf(result,x,y) << endl;
     cout << result << endl;
     return 0;
 }
