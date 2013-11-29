@@ -56,12 +56,37 @@ double gen_pow(double x, int n)
             return ERROR;
         }
 
-        return pow(1/x , -n);
+        return pow(1/x , n);
     }
 
     else
         return pow(x,n);
 }
+
+double pow_leetcode(double x, int n) {
+        
+	if(n == 0)
+            return 1;
+ 
+        double temp = pow(x,n/2);
+        
+        if(n % 2 == 0)
+            return temp * temp;
+        
+        else
+        {
+            if( n < 0 )
+            {
+                if(x == 0.0)
+                    throw "x == 0 exception";
+                    
+                return temp * temp * (1 / x);
+            }
+            else
+                return temp * temp * x;
+        }
+}
+
 
 int main()
 {
