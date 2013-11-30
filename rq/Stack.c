@@ -72,18 +72,18 @@ void StackPop(struct stack *s, void* el_pop)
 
 int main()
 {
-    int val;
+    char val;
     struct stack intStack;
 
     StackNew(&intStack, sizeof(int));
     
-    for(val = 0; val < 6; val++)
+    for(val = 'a'; val < 'k'; val++)
         StackPush(&intStack, &val);
     
     while(!StackEmpty(&intStack))
     {
         StackPop(&intStack, &val);
-        printf("Popped %d \n",val);
+        printf("Popped %c \n",val);
     }
     
     StackDestroy(&intStack);
