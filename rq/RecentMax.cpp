@@ -6,6 +6,15 @@
 #include<cstdlib>
 
 using namespace std;
+/*
+"Recent Max" Problem Statement 
+
+Write a program that takes in as command-line arguments an integer n and the name of a potentially very large file containing a series of floating point numbers, one to a line. The program should output (to stdout) a series of floating point numbers, each of which is a max of a subsequence of the data in the file of length 0-n. Essentially, the ith number output is the max of the numbers in the original series starting at index i and looking backwards n elements or to the beginning of the series, whichever is nearer. For instance, if the input were:
+1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1
+And n=3, the output would be:
+1, 2, 3, 4, 5, 6, 6, 6, 5, 4, 3
+*/
+
 //compile the code using = g++ -o rmx -std=c++11 RecentMax.cpp
 //and then run the code using = ./rmx 3 inp.txt
 //Questions asked in the mail
@@ -14,7 +23,6 @@ using namespace std;
 
 void RecentMax(vector<float>&v,int k)
 {
-    int len = v.size();
     int save_k = k;
 
     vector<float> temp;
