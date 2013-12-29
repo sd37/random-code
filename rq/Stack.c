@@ -26,6 +26,7 @@ void StackNew(struct stack *s, int el_size)
 {
     assert(el_size > 0);
     s->el_size = el_size;
+    s->actual_length = 0;
     s->alloc_length = 4; //initial allocated length . this is completely arbitary.
     s->el = malloc(s->alloc_length * s->el_size);
     assert(s->el != NULL);
