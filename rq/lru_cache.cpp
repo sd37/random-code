@@ -55,8 +55,11 @@ void DLL::mvfront(struct dlNode* pg)
         pg->prev->next = pg->next;
         pg->next->prev = pg->prev;
     }
+
     pg->next = front;
+    pg->next->prev = pg;
     front = pg;
+    
 }
 
 void DLL::push(int val)
