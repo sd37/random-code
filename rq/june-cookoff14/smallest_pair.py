@@ -1,23 +1,10 @@
+#http://discuss.codechef.com/questions/46072/smpair-editorial
 import sys
 
 def solve(a, sz):
-    
-    i = 0;
-    j = i + 1;
-    curmin = a[i] + a[j];
+    a.sort()
 
-    while i < sz - 1:
-        j = i + 1;
-        while j < sz:
-
-            if(curmin > (a[i] + a[j])):
-                curmin = a[i] + a[j];
-            j = j + 1
-
-        i = i + 1;
-    
-    return curmin
-
+    return a[0] + a[1]
 
 _num_test = int(raw_input());
 
