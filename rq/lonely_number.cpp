@@ -1,4 +1,8 @@
 //https://www.hackerrank.com/challenges/lonely-integer
+/*
+ *  status = AC
+ */
+
 #include <cmath>
 #include <cstdio>
 #include <vector>
