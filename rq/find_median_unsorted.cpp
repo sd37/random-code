@@ -1,4 +1,8 @@
 //https://www.hackerrank.com/challenges/find-median
+/*
+ * status = AC
+ */
+
 #include<iostream>
 #include<stdio.h>
 #include<vector>
