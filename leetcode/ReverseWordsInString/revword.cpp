@@ -19,6 +19,37 @@ class Solution
                 hi--;
             }
         }
+
+        void removeMulSpaces(string &s, int lo, int hi)
+        {
+            string new_s;
+            
+            for(int i = lo; i <= hi; i++)
+            {
+                if(isspace(s[i]))
+                    continue;
+                else
+                {
+                    int l = i;
+                    int h = l;
+                    
+                    for(; h <= hi; h++)
+                    {
+                        if(!isspace(s[h]))
+                            new_s.push_back(s[h]);
+                        else
+                        {
+                            new_s.push_back(' ');
+                            break;
+                        }
+                    }
+                    
+                    i = h; //update i
+                }
+            }
+            
+            s.swap(new_s);
+        }
     
     public:
     
@@ -56,15 +87,17 @@ class Solution
                     reverseString(s, lo, hi - 1);
                }
             }
+        
+            // remove trailing, leading and multiple spaces .. as per question specification */
+            
+            removeMulSpaces(s, 0, s.length() - 1);
         }
-    
-
 };
 
 
 int main()
 {
-    string s("the sky is blue");
+    string s("");
 
     Solution soln;
 
