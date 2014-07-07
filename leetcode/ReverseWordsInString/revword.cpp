@@ -1,3 +1,6 @@
+//https://oj.leetcode.com/problems/reverse-words-in-a-string/
+// status = AC
+
 #include<iostream>
 #include<string>
 
@@ -49,6 +52,8 @@ class Solution
             }
             
             s.swap(new_s);
+            if(isspace(s[s.length() - 1]))
+                s.pop_back();
         }
     
     public:
@@ -97,7 +102,7 @@ class Solution
 
 int main()
 {
-    string s("");
+    string s("  the   sky is  blue   ");
 
     Solution soln;
 
