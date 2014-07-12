@@ -18,7 +18,14 @@ public class Solution {
             new_s += temp_sb + " ";
         }
        
-        return new_s.substring(0, new_s.length() - 1);
+        String ans_s = null;
+
+        if(new_s.charAt(new_s.length() -1) == ' ')
+            ans_s = new_s.substring(0, new_s.length() - 1);
+        else 
+            ans_s = new_s;
+        
+        return ans_s;
     }
 
     public static final void main(String[] args) {
