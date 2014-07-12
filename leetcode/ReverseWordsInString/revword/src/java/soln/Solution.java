@@ -6,7 +6,7 @@ public class Solution {
 
         sb.reverse();
 
-        String[] parts = sb.toString().split("\\s+");
+        String[] parts = sb.toString().trim().split("\\s+");
         
         String new_s = "";
 
@@ -20,7 +20,7 @@ public class Solution {
        
         String ans_s = null;
 
-        if(new_s.charAt(new_s.length() -1) == ' ')
+        if(new_s.length() > 0 && new_s.charAt(new_s.length() - 1) == ' ')
             ans_s = new_s.substring(0, new_s.length() - 1);
         else 
             ans_s = new_s;
@@ -29,7 +29,7 @@ public class Solution {
     }
 
     public static final void main(String[] args) {
-        String s = "   the   sky is   blue";
+        String s = " the    sky  is   blue   ";
 
         Solution soln = new Solution();
 
