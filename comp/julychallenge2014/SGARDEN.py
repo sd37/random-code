@@ -48,12 +48,12 @@ def primeFact(N):
             factors.append(i)
             N = N / i
         
+        i = i + 1
+        
         if i*i > N:
             if N > 1:
                 factors.append(N)
-                break
-
-        i = i + 1
+            break
 
     primed = dict()
 
