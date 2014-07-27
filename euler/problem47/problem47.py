@@ -1,5 +1,5 @@
 #https://projecteuler.net/problem=47
-#ans = 13043
+#ans = 134043
 #status = AC
 
 import sys
@@ -34,7 +34,7 @@ def numOfDistinctPrimeFactors(N):
         if i * i > N :
             if N > 1:
                 factors.append(N)
-                break
+            break
         i = i + 1
 
     return len(set(factors))
