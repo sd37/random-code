@@ -1,6 +1,6 @@
 # https://projecteuler.net/problem=5
 # status = AC
-
+# ans = 232792560
 import sys
 
 def primeFactors(N):
