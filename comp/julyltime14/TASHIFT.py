@@ -15,13 +15,12 @@ def solve(N,A,B):
 
     r = 0
     r_max = r
-    B_org = B
     max_len = common_prefix(A,B)
 
     while True:
         B = rotate(B,1)
         r = r + 1
-        if(B == B_org):
+        if(r == N):
             break
         cmlen = common_prefix(A,B)
         if max_len < cmlen:
