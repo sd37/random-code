@@ -1,3 +1,6 @@
+# status = AC
+# concept = keep track of even numbers
+
 import sys
 
 def solve(a,n,k):
