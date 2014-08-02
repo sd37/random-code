@@ -3,7 +3,7 @@ import sys
 def solve(a,n,k):
 
     assert(len(a) >= 0)
-
+    
     num_even = [0]*len(a)
 
     if a[0] % 2 == 0:
@@ -21,22 +21,16 @@ def solve(a,n,k):
             num_even[i] = num_even[i - 1]
         i = i + 1
    
-    num_even = [0] + num_even
+    if k == 0:
+        if num_even[-1] == len(a):
+            return "NO"
+        else:
+            return "YES"
 
-    #print num_even
-
-    i = 0
-
-    while i < len(num_even):
-        j = i
-        
-        while j < len(num_even):
-            if(num_even[j] - num_even[i] == k):
-                return "YES"
-            j = j + 1
-        i = i + 1
-
-    return "NO"
+    if num_even[-1] >= k:
+        return "YES"
+    else:
+        return "NO"
 
 T = int(raw_input())
 
