@@ -2,11 +2,7 @@
 
 import sys
 
-P = None
-#child = dict()
-
-def find_set(d):
-    global P
+def find_set(P,d):
     while P[d] != d:
         P[d] = P[P[d]]
         d = P[d]
@@ -29,7 +25,7 @@ while T > 0:
         d = map(int, sys.stdin.readline().strip().split())
         k = len(d)
         if k == 3:
-            cx, cy = find_set(d[1]), find_set(d[2])
+            cx, cy = find_set(P,d[1]), find_set(P,d[2])
             if cx == cy:
                 print "Invalid query!"
             elif S[cx] > S[cy]:
@@ -37,7 +33,7 @@ while T > 0:
             elif S[cx] < S[cy]:
                 P[cx] = cy
         else:
-            print find_set(d[1])
+            print find_set(P,d[1])
         Q = Q - 1
 
     T = T - 1
