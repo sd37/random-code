@@ -2,15 +2,15 @@
 
 import sys
 
-parent = None
+P = None
 #child = dict()
 
-def find_set(x):
-    global parent
-    while parent[x] != x:
-        parent[x] = parent[parent[x]]
-        x = parent[x]
-    return parent[x]
+def find_set(d):
+    global P
+    while P[d] != d:
+        P[d] = P[P[d]]
+        d = P[d]
+    return P[d]
 
 T = int(sys.stdin.readline())    
 
@@ -18,24 +18,26 @@ while T > 0:
     
     N = int(sys.stdin.readline())
     S = map(int, sys.stdin.readline().strip().split())
-    parent = range(1,N + 1)
+    P = range(1,N + 1)
     
-    parent = [-1] + parent
+    P = [-1] + P
     S = [-1] + S
 
-    q = int(sys.stdin.readline())
-    while q > 0:
-        q -= 1
+    Q = int(sys.stdin.readline())
+
+    while Q > 0:
         d = map(int, sys.stdin.readline().strip().split())
         k = len(d)
         if k == 3:
-            l, m = find_set(d[1]), find_set(d[2])
-            if l == m:
+            cx, cy = find_set(d[1]), find_set(d[2])
+            if cx == cy:
                 print "Invalid query!"
-            elif S[l] > S[m]:
-                parent[m] = l
-            elif S[l] < S[m]:
-                parent[l] = m
+            elif S[cx] > S[cy]:
+                P[cy] = cx
+            elif S[cx] < S[cy]:
+                P[cx] = cy
         else:
             print find_set(d[1])
+        Q = Q - 1
+
     T = T - 1
