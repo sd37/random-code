@@ -12,25 +12,30 @@ def find_set(x):
         x = parent[x]
     return parent[x]
 
-t = int(sys.stdin.readline())    
-while t > 0:
-    t -= 1
-    n = int(sys.stdin.readline())
-    si = map(int, sys.stdin.readline().strip().split())
-    parent = range(n)
-        
+T = int(sys.stdin.readline())    
+
+while T > 0:
+    
+    N = int(sys.stdin.readline())
+    S = map(int, sys.stdin.readline().strip().split())
+    parent = range(1,N + 1)
+    
+    parent = [-1] + parent
+    S = [-1] + S
+
     q = int(sys.stdin.readline())
     while q > 0:
         q -= 1
         d = map(int, sys.stdin.readline().strip().split())
         k = len(d)
         if k == 3:
-            l, m = find_set(d[1]-1), find_set(d[2]-1)
+            l, m = find_set(d[1]), find_set(d[2])
             if l == m:
                 print "Invalid query!"
-            elif si[l] > si[m]:
+            elif S[l] > S[m]:
                 parent[m] = l
-            elif si[l] < si[m]:
+            elif S[l] < S[m]:
                 parent[l] = m
         else:
-            print find_set(d[1]-1) + 1
+            print find_set(d[1])
+    T = T - 1
