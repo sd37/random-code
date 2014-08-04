@@ -1,5 +1,6 @@
 #!/usr/bin/env python
-
+# status = AC
+# concept = union-find with path compression. Iterative solution works otherwise you will get NZEC
 import sys
 
 def find_set(P,d):
