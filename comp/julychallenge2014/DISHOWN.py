@@ -1,67 +1,36 @@
+#!/usr/bin/env python
+
 import sys
 
-# d stands for dish
-# di stands for the ith dish
-# P represent the owner of a particular dish
+parent = None
+#child = dict()
 
-def find(P,d):
+def find_set(x):
+    global parent
+    while parent[x] != x:
+        parent[x] = parent[parent[x]]
+        x = parent[x]
+    return parent[x]
 
-    if P[d] == d:
-        return d
-    else:
-        P[d] = find(P,P[d])
-    
-    return P[d]
-
-def union(P,S,dx,dy):
-
-    cx = find(P,dx)
-    cy = find(P,dy)
-    
-    if(cx == cy):
-        print "Invalid query!"
-        return
-
-    if( S[cx] < S[cy] ):
-        P[cx] = cy
-    elif(S[cx] > S[cy] ):
-        P[cy] = cx
-    else:
-        pass
-
-# read the inputs
-
-T = int(raw_input())
-
-while T > 0:
-    N = int(raw_input())
-    l = raw_input()
-    ls = l.split()
-    S = []
-    
-    for c in ls:
-        S.append(int(c))
-    
-    assert len(S) == N
-
-    P = range(N)
-    
-    numQ = int(raw_input())
-
-    while numQ > 0:
-        ql = raw_input()
-        qls  = ql.split()
-
-        if qls[0] == "0":
-            dx = int(qls[1])
-            dy = int(qls[2])
-            union(P,S,dx - 1,dy - 1)
+t = int(sys.stdin.readline())    
+while t > 0:
+    t -= 1
+    n = int(sys.stdin.readline())
+    si = map(int, sys.stdin.readline().strip().split())
+    parent = range(n)
         
+    q = int(sys.stdin.readline())
+    while q > 0:
+        q -= 1
+        d = map(int, sys.stdin.readline().strip().split())
+        k = len(d)
+        if k == 3:
+            l, m = find_set(d[1]-1), find_set(d[2]-1)
+            if l == m:
+                print "Invalid query!"
+            elif si[l] > si[m]:
+                parent[m] = l
+            elif si[l] < si[m]:
+                parent[l] = m
         else:
-            assert qls[0] == "1"
-            dx = int(qls[1])
-            print find(P,dx - 1) + 1 
-
-        numQ = numQ - 1
-    
-    T = T -1
+            print find_set(d[1]-1) + 1
