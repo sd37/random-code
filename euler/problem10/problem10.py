@@ -6,7 +6,8 @@ import sys
 import math
 
 def genPrimes(N):
-
+    # generates all primes less than N
+    
     isprime = [1] * N
 
     isprime[0] = 0
