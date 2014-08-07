@@ -1,10 +1,11 @@
 # status = AC
 import sys
 
-def alphasort(s):
-    return ''.join(sorted(s))
 
 class Solution:
+    
+    def alphasort(self,s):
+        return ''.join(sorted(s))
     
     def anagrams(self, strs):
         
@@ -12,10 +13,10 @@ class Solution:
 
         for x in strs:
 
-            if alphasort(x) not in anagrm:
-                anagrm[alphasort(x)] = [x]
+            if self.alphasort(x) not in anagrm:
+                anagrm[self.alphasort(x)] = [x]
             else:
-                anagrm[alphasort(x)].append(x)
+                anagrm[self.alphasort(x)].append(x)
 
         ans_l = []
 
