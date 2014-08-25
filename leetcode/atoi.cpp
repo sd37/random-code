@@ -46,7 +46,7 @@ bool mulOvf(int x,int y)
     else if(x > 0 && y < INT_MIN / x)
         return true;
     else if(x < 0 && x < INT_MAX / y)
-        return true
+        return true;
     else
         return false;
 }
