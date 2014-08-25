@@ -28,7 +28,10 @@ public class Solution {
         else if (x < 0 && y < 0 && Math.abs(y) > Integer.MAX_VALUE / Math.abs(x))
             return true;
 
-        else if (y < Integer.MIN_VALUE / Math.abs(x))
+        else if (x > 0 && y < Integer.MIN_VALUE / x)
+            return true;
+
+        else if (x < 0 && x < Integer.MIN_VALUE / y)
             return true;
 
         else
