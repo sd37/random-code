@@ -1,3 +1,6 @@
+# status = AC.
+# ans = 4075.
+
 import sys
 import math
 
