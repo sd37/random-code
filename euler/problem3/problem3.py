@@ -30,13 +30,13 @@ def primeFactorization_Osqrtn(N):
         while( N % i == 0) :
             factors.append(i)
             N = N / i
+
+        i = i + 1
        
         if(i*i > N):
             if(N > 1):
                 factors.append(N)
             break
-
-        i = i + 1
     
     print factors
     return factors
